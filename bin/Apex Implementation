@@ -1,0 +1,128 @@
+// public class Sudoku {
+    
+//     private static final Integer GRID_SIZE = 9;
+    
+//        private static boolean isInRow(List<List<Integer>> listBoard, Integer numberToFind, Integer row) {
+//         for (Integer i = 0; i < GRID_SIZE; i++) {
+//             if (listBoard[row][i] == numberToFind) {
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+    
+//     private static boolean isInColumn(List<List<Integer>> listBoard, Integer numberToFind, Integer column) {
+//         for (Integer i = 0; i < GRID_SIZE; i++) {
+//             if (listBoard[i][column] == numberToFind) {
+//                 return true;
+//             }
+
+//         }
+//         return false;
+//     }
+
+//     private static boolean isInBox(List<List<Integer>> listBoard, Integer numberToFind, Integer row, Integer column) {
+//         Integer miniRow = row - math.mod(row,3);
+//         Integer miniColumn = column - math.mod(column,3);
+
+//         for (Integer i = miniRow; i < miniRow + 3; i++) {
+//             for (Integer j = miniColumn; j < miniColumn + 3; j++) {
+//                 if (listBoard[i][j] == numberToFind) {
+//                     return true;
+//                 }
+//             }
+//         }
+//         return false;
+//     }
+
+//     private static boolean isValid(List<List<Integer>> listBoard, Integer numberToFind, Integer row, Integer column) {
+//         return !isInBox(listBoard, numberToFind, row, column) && !isInColumn(listBoard, numberToFind, column)
+//                 && !isInRow(listBoard, numberToFind, row);
+//     }
+
+//     private static void printBoard(List<List<Integer>> listBoard) {
+//         for (Integer row = 0; row < GRID_SIZE; row++) {
+//             if (math.mod(row,3) == 0 && row != 0) {
+//                 System.debug(Logginglevel.INFO,'-----------');
+//             }
+//             for (Integer column = 0; column < GRID_SIZE; column++) {
+//                 if (math.mod(column,3) == 0 && column != 0) {
+//                     System.debug(Logginglevel.INFO,'|');
+//                 }
+//                 System.debug(Logginglevel.INFO,listBoard[row][column]);
+//             }
+          
+//         }
+//     }
+
+//     private static boolean solveBoard(List<List<Integer>> listBoard) {
+//         for (Integer row = 0; row < GRID_SIZE; row++) {
+//             for (Integer column = 0; column < GRID_SIZE; column++) {
+//                 if (listBoard[row][column] == 0) {
+//                     for (Integer numberToTry = 1; numberToTry <= GRID_SIZE; numberToTry++) {
+//                         if (isValid(listBoard, numberToTry, row, column)) {
+//                             listBoard[row][column] = numberToTry;
+
+//                             if (solveBoard(listBoard)) {
+//                                 return true;
+//                             } else {
+//                                 listBoard[row][column] = 0;
+//                             }
+//                         }
+//                     }
+//                     return false;
+//                 }
+//             }
+//         }
+//         return true;
+//     }
+
+    
+    
+    
+//     public static void main(){
+//          String[] datosTexto = new String[]{
+//             '5 3 0 0 7 0 0 0 0',
+//             '6 0 0 1 9 5 0 0 0',
+//             '0 9 8 0 0 0 0 6 0',
+//             '8 0 0 0 6 0 0 0 3',
+//             '4 0 0 8 0 3 0 0 1',
+//             '7 0 0 0 2 0 0 0 6',
+//             '0 6 0 0 0 0 2 8 0',
+//             '0 0 0 4 1 9 0 0 5',
+//             '0 0 0 0 8 0 0 7 9'
+//         };
+            
+//             List<List<Integer>> sudokuGrid = new List<List<Integer>>();
+        
+           
+        
+//             for (Integer i = 0; i < 9; i++) {
+//              List<Integer> numberValues = new List<Integer>();
+//              String[] datosComoTexto = datosTexto[i].split(' ');
+
+//             for (Integer j = 0; j < 9; j++) {
+//                 numberValues.add(Integer.valueOf(datosComoTexto[j]));
+//             }
+//                 sudokuGrid.add(numberValues);
+//         }    
+         
+//         printBoard(sudokuGrid);
+        
+//         if(solveBoard(sudokuGrid)){
+//             System.debug(Logginglevel.INFO,'solved');
+//         }
+//         else{
+//             System.debug(Logginglevel.INFO,'cannot be solved');
+//         }
+        
+//         printBoard(sudokuGrid);
+        
+        
+        
+                   
+
+//     }
+    
+
+//  }

@@ -57,32 +57,27 @@ public class App {
         }
     }
 
-     
-  private static boolean solveBoard(int[][] board) {
-    for (int row = 0; row < GRID_SIZE; row++) {
-      for (int column = 0; column < GRID_SIZE; column++) {
-        if (board[row][column] == 0) {
-          for (int numberToTry = 1; numberToTry <= GRID_SIZE; numberToTry++) {
-            if (isValid(board, numberToTry, row, column)) {
-              board[row][column] = numberToTry;
-              
-              if (solveBoard(board)) {
-                return true;
-              }
-              else {
-                board[row][column] = 0;
-              }
+    private static boolean solveBoard(int[][] board) {
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int column = 0; column < GRID_SIZE; column++) {
+                if (board[row][column] == 0) {
+                    for (int numberToTry = 1; numberToTry <= GRID_SIZE; numberToTry++) {
+                        if (isValid(board, numberToTry, row, column)) {
+                            board[row][column] = numberToTry;
+
+                            if (solveBoard(board)) {
+                                return true;
+                            } else {
+                                board[row][column] = 0;
+                            }
+                        }
+                    }
+                    return false;
+                }
             }
-          }
-          return false;
         }
-      }
+        return true;
     }
-    return true;
-  }
-  
-  
-  
 
     public static void main(String[] args) throws Exception {
 
@@ -99,29 +94,24 @@ public class App {
         };
 
         int[][] board = new int[datosTexto.length][datosTexto.length];
-        
-        
 
         for (int i = 0; i < datosTexto.length; i++) {
             String[] datosComoTexto = datosTexto[i].split(" ");
 
-            for(int j = 0; j<datosComoTexto.length; j++){
+            for (int j = 0; j < datosComoTexto.length; j++) {
                 board[i][j] = Integer.parseInt(datosComoTexto[j]);
-             }
+            }
         }
-         
 
-          printBoard(board);
+        printBoard(board);
 
-         
-     if (solveBoard(board)) {
-        System.out.println("Solved successfully!");
-      }
-      else {
-        System.out.println("Unsolvable board :(");
-      }
-         
-      printBoard(board);
+        if (solveBoard(board)) {
+            System.out.println("Solved successfully!");
+        } else {
+            System.out.println("Unsolvable board :(");
+        }
+
+        printBoard(board);
 
     }
 
